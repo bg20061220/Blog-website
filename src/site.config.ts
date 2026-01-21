@@ -69,7 +69,7 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     website: 'https://example.com',
-    title: 'Space Ahead',
+    title: 'Blog Website',
     description: 'A minimal space-inspired personal blog template built with Astro.js and Tailwind CSS, by Siddhesh Thadeshwar',
     image: {
         src: '/space-ahead-preview.jpeg',
@@ -77,7 +77,7 @@ const siteConfig: SiteConfig = {
     },
     headerNavLinks: [
         {
-            text: 'Home',
+            text: 'About',
             href: withBase('/')
         },
         {
@@ -85,17 +85,10 @@ const siteConfig: SiteConfig = {
             href: withBase('/blog')
         },
         {
-            text: 'Tags',
+            text: 'Contact',
             href: withBase('/tags')
         },
-        {
-            text: 'About',
-            href: withBase('/about')
-        },
-        {
-            text: 'Contact',
-            href: withBase('/contact')
-        }
+       
     ],
     footerNavLinks: [
         {
@@ -130,23 +123,14 @@ const siteConfig: SiteConfig = {
         }
     ],
     hero: {
-        eyebrowText: 'Galaxy of Adventures',
-        title: 'Space Ahead ✨',
-        text: "Written by Astro-naut Sid, a space explorer at Beyond Earth.",
+        
+        title:  ' Hi , I am Bhavya 👋',
+        text: "I build and break stuff and write about what I learn along the way.",
         image: {
             src: '/assets/images/pixeltrue-space-discovery.svg',
             alt: 'A person sitting at a desk in front of a computer'
         },
-        actions: [
-            {
-                text: 'Read Now',
-                href: withBase('/blog')
-            },
-            {
-                text: 'Subscribe',
-                href: '#subscribe'
-            }
-        ]
+      
     },
     about: {
         title: 'About',
