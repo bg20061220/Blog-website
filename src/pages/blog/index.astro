@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Pagination from "../../components/Pagination.astro";
+import { sortItemsByDateDesc } from "../../utils/helpers";
+import MainLayout from "../../layouts/MainLayout.astro";
+import siteConfig from "../../site.config";
+import PostCardPreview from "../../components/PostCardPreview.astro";
+
+const blogs = (await getCollection("blogs")).sort(sortItemsByDateDesc);
+const postsPerPage = siteConfig.postsPerPage || 2;
+const totalPages = Math.ceil(blogs.length / postsPerPage);
+
+// Get first page of posts
+const allPosts = blogs.slice(0, postsPerPage);
+
+// Create page object for Pagination component
+const page = {
+  data: allPosts,
+  start: 0,
+  end: postsPerPage - 1,
+  size: postsPerPage,
+  total: blogs.length,
+  currentPage: 1,
+  lastPage: totalPages,
+  url: {
+    current: "/blog",
+    prev: undefined,
+    next: totalPages > 1 ? "/blog/2" : undefined,
+  },
+};
+---
+
+<MainLayout activePage="blog" pageTitle={siteConfig.title + " | Blog Archive"}>
+  <div class="page-content py-8 text-center">
+    <h1 class="sigmar-ff">Blog</h1>
+    {
+      siteConfig.blog?.description && (
+        <p class="font-light text-balance">{siteConfig.blog?.description}</p>
+      )
+    }
+
+    <div
+      class="flex flex-col text-left gap-8 mb-4 text-sm sm:text-base max-w-fit mx-auto"
+    >
+      {allPosts.map((post) => <PostCardPreview post={post} />)}
+    </div>
+    <Pagination page={page} class="mb-16 sm:mb-24" />
+  </div>
+</MainLayout>
