@@ -49,7 +49,6 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
       </div>
     </div>
     <div class="w-full sm:w-fit sm:max-w-1/2">
-      <!-- {siteConfig.hero?.image && <Image src={siteConfig.hero?.image?.src} alt={siteConfig.hero?.image?.alt || ""} inferSize={true} />} -->
       <Image
         class="cover-img"
         src={heroImage}
@@ -59,19 +58,40 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
       />
     </div>
   </div>
-  <div class="page-content">
-    <div id="posts" class="flex flex-col items-center justify-center w-full">
-      <h2 class="sigmar-ff text-balance pt-0! pb-8!">Recent Stories</h2>
-      <div class="flex flex-col gap-8 max-w-full text-left">
-        {
-          allPosts
-            .slice(0, siteConfig.recentPostLimit)
-            .map((post) => <PostCardPreview post={post} />)
-        }
+
+  <!-- More About Me Section -->
+  <div class="page-content my-16">
+    <div class="flex flex-col items-center justify-center w-full max-w-3xl mx-auto px-4">
+      <h2 class="sigmar-ff text-balance pt-0! pb-8!">More About Me</h2>
+      <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 w-full">
+        <div class="space-y-4 kanit-regular text-sm sm:text-base">
+          <p>
+            <strong>🎓 Education:</strong> I'm currently studying Mathematics at the University of Waterloo, 
+            where I'm building a strong foundation in analytical thinking and problem-solving.
+          </p>
+          <p>
+            <strong>💡 Interests:</strong> I'm passionate about software development, AI applications, and deploying 
+            intelligent systems at scale. Recently, I've been dipping my toes into design and product design to 
+            better understand the principles of user satisfaction and create products people actually love.
+          </p>
+          <p>
+            <strong>🚀 Recent Win:</strong> I just finished building a Resume Tailoring Tool that cuts resume 
+            customization time from 30 minutes down to just 2 minutes—because who has time to manually tweak 
+            resumes for every application?
+          </p>
+          <p>
+            <strong>🛠️ Currently Working On:</strong> I'm building a research feedback tool that helps anyone 
+            test their ideas and gather structured feedback. I've also recently joined UW Cube's project team, 
+            where I'll be contributing to product design and development for a health tech project.
+          </p>
+        </div>
+        <div class="mt-8">
+          <Button href={withBase("/blog")} class="space-btn-outlined">
+            Read Blogs <ArrowRight class="w-5 h-5 fill-current ml-4" />
+          </Button>
+        </div>
       </div>
-      <Button href={withBase("/blog")} class="space-btn-filled mt-8">
-        View All Posts <ArrowRight class="w-5 h-5 fill-current ml-4" />
-      </Button>
     </div>
   </div>
+
 </MainLayout>

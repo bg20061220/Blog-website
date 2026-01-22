@@ -86,7 +86,7 @@ const siteConfig: SiteConfig = {
         },
         {
             text: 'Contact',
-            href: withBase('/tags')
+            href: withBase('/contact')
         },
        
     ],
@@ -142,31 +142,27 @@ const siteConfig: SiteConfig = {
         email: {
             text: "Drop me an email and I’ll do my best to respond as soon as possible.",
             href: "mailto:example@example.com",
-            email: "example@example.com"
+            email: "goel.bhavya020@gmail.com"
         },
         socialProfiles: [
             {
                 text: "LinkedIn",
-                href: "https://www.linkedin.com/"
-            },
-            {
-                text: "Peerlist",
-                href: "https://www.peerlist.io/"
+                href: "https://www.linkedin.com/in/bhavya-goel-2616b3285/"
             },
             {
                 text: "GitHub",
-                href: "https://github.com/"
+                href: "https://github.com/bg20061220"
             }
         ]
     },
-    subscribe: {
-        title: 'Subscribe to Space Ahead',
-        text: 'One update per week. All the latest stories in your inbox.',
-        formUrl: '#'
-    },
-    blog: {
-        description: "Read about my space adventures, explorations and the aliens I've met on my journeys."
-    },
+    // subscribe: {
+    //     title: 'Subscribe to Space Ahead',
+    //     text: 'One update per week. All the latest stories in your inbox.',
+    //     formUrl: '#'
+    // },
+    //  blog: {
+    //      description: "Read about my space adventures, explorations and the aliens I've met on my journeys."
+    //  },
     postsPerPage: 2,
     recentPostLimit: 3
 };
