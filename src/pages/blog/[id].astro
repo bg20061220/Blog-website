@@ -4,7 +4,6 @@ import { Image } from "astro:assets";
 import {
   sortItemsByDateDesc,
   createSlugFromTitle,
-  withBase,
 } from "../../utils/helpers";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Button from "../../components/Button.astro";
@@ -57,14 +56,14 @@ const { Content } = await render(post);
     <div
       class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8"
     >
-      <Button class="back-link" href={withBase("/blog")}>
+      <Button class="back-link" href="/blog">
         <ArrowLeft class="w-5 h-5 fill-current mr-4" /> Back to All Stories
       </Button>
       {
         (prevPost || nextPost) && nextPost && (
           <Button
             class="back-link text-balance"
-            href={withBase("/blog/" + nextPost.id)}
+            href={"/blog/" + nextPost.id}
           >
             Next Post: {nextPost.data.title}{" "}
             <ArrowRight class="w-5 h-5 fill-current ml-4" />

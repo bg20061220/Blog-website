@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/MainLayout.astro";
 import siteConfig from "../site.config";
-import { sortItemsByDateDesc, withBase } from "../utils/helpers";
+import { sortItemsByDateDesc } from "../utils/helpers";
 import PostCardPreview from "../components/PostCardPreview.astro";
 import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
@@ -86,7 +86,7 @@ const allPosts = (await getCollection("blogs")).sort(sortItemsByDateDesc);
           </p>
         </div>
         <div class="mt-8">
-          <Button href={withBase("/blog")} class="space-btn-outlined">
+          <Button href="/blog" class="space-btn-outlined">
             Read Blogs <ArrowRight class="w-5 h-5 fill-current ml-4" />
           </Button>
         </div>

@@ -9,7 +9,19 @@ import PostCardPreview from "../../components/PostCardPreview.astro";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const blogs = (await getCollection("blogs")).sort(sortItemsByDateDesc);
-  return paginate(blogs, { pageSize: siteConfig.postsPerPage || 2 });
+  const paginatedPosts = paginate(blogs, { pageSize: siteConfig.postsPerPage || 2 });
+  
+  // Map the paginated posts and handle the first page as /blog (no page number)
+  return paginatedPosts.map((page, index) => {
+    if (index === 0) {
+      // First page can be accessed at both /blog and /blog/1
+      return {
+        params: { page: undefined },
+        props: page.props
+      };
+    }
+    return page;
+  });
 }
 
 type Props = { page: Page<CollectionEntry<"blogs">> };

@@ -8,9 +8,6 @@ const {
   links: { text: string; href: string }[];
   isMobileLink?: boolean;
 };
-
-// Get the site URL from astro config
-const siteUrl = import.meta.env.SITE || '';
 ---
 
 {
@@ -24,11 +21,9 @@ const siteUrl = import.meta.env.SITE || '';
       .join(" ")
       .trim();
     
-    // Create proper absolute URL
-    const href = link.href.startsWith('http') ? link.href : `${siteUrl}${link.href}`;
-    
+    // Use relative URLs (just the href as-is, no modification)
     return (
-      <a class={classNames} href={href}>
+      <a class={classNames} href={link.href}>
         {link.text}
       </a>
     );

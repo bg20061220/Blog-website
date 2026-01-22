@@ -4,13 +4,13 @@ import Hamburger from "./Hamburger.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 import SiteIdentity from "./SiteIdentity.astro";
 import NavLinks from "./NavLinks.astro";
-import { withBase } from "../utils/helpers";
+
 const { activePage } = Astro.props;
 ---
 
 <header>
   <nav class="font-light w-full">
-    <a href={withBase("/")}><SiteIdentity /></a>
+    <a href="/"><SiteIdentity /></a>
     <div class="hidden sm:flex sm:gap-8">
       {(<NavLinks activePage={activePage} links={siteConfig.headerNavLinks} />)}
     </div>

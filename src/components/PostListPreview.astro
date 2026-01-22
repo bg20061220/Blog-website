@@ -2,7 +2,6 @@
 import { type CollectionEntry } from "astro:content";
 import ArrowRight from "../icons/ArrowRight.astro";
 import FormattedDate from "./FormattedDate.astro";
-import { withBase } from "../utils/helpers";
 
 type Props = {
   post: CollectionEntry<"blogs">;
@@ -17,7 +16,7 @@ const TitleTag = headingLevel;
 
 <a
   class:list={["flex justify-between items-start gap-8 group", className]}
-  href={withBase("/blog/" + post.id)}
+  href={"/blog/" + post.id}
 >
   <div class="grow">
     <TitleTag class="sigmar-ff">{title}</TitleTag>
