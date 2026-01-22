@@ -69,7 +69,7 @@ export type SiteConfig = {
 
 const siteConfig: SiteConfig = {
     website: 'https://example.com',
-    title: 'Blog Website',
+    title: 'UWaterloo Shenanigans',
     description: 'A minimal space-inspired personal blog template built with Astro.js and Tailwind CSS, by Siddhesh Thadeshwar',
     image: {
         src: '/space-ahead-preview.jpeg',
