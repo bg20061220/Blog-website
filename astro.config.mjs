@@ -2,13 +2,10 @@ import { defineConfig } from "astro/config";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import swup from "@swup/astro";
-
 import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://bhavyagoel.netlify.app/",
-
   integrations: [
     swup({
       theme: ["overlay", { direction: "to-top" }],
@@ -18,19 +15,13 @@ export default defineConfig({
     preact(),
     sitemap(),
   ],
-
   image: {
     responsiveStyles: true,
   },
-
   vite: {
     plugins: [tailwindcss()],
   },
+  redirects: {
+    '/blog': '/blog/1'  // ← Add this
+  }
 });
-
-//swup theme variations:
-// theme: "fade"
-// theme: ["overlay", { direction: "to-top"}]
-//
-// for overlay and fade, further customization can be done in animate.css file
-// To know about swup, visit https://swup.js.org/
