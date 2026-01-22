@@ -1,4 +1,3 @@
-import { withBase } from "./utils/helpers";
 
 export type Image = {
     src: string;
@@ -78,34 +77,34 @@ const siteConfig: SiteConfig = {
     headerNavLinks: [
         {
             text: 'About',
-            href: withBase('/')
+            href: ('/')
         },
         {
             text: 'Blog',
-            href: withBase('/blog')
+            href: ('/blog')
         },
         {
             text: 'Contact',
-            href: withBase('/contact')
+            href: ('/contact')
         },
        
     ],
     footerNavLinks: [
         {
             text: 'About',
-            href: withBase('/about')
+            href: ('/about')
         },
         {
             text: 'Contact',
-            href: withBase('/contact')
+            href: ('/contact')
         },
         {
             text: 'RSS Feed',
-            href: withBase('/rss.xml')
+            href: ('/rss.xml')
         },
                 {
             text: 'Sitemap',
-            href: withBase('/sitemap-index.xml')
+            href: ('/sitemap-index.xml')
         }
     ],
     socialLinks: [
